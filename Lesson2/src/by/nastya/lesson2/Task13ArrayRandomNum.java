@@ -13,7 +13,7 @@ public class Task13ArrayRandomNum {
         Random random = new Random();
         int randomArray = random.nextInt(100 - 1) + 1;
         //System.out.println("randomArray " + randomArray);//------------для проверки
-        int array[] = new int[randomArray];
+        int [] array = new int[randomArray];
         for (int i = 0; i < randomArray; i++) {
             int randomNam = random.nextInt(100 - 1) + 1;
             array[i] = randomNam;

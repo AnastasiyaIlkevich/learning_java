@@ -15,13 +15,13 @@ public class Task11SimpleNumber {
         if (randomNum == 0 || randomNum == 1) {
             System.out.printf("Число %d не является простым или составным числом.", randomNum);
         } else {
-            for (int i = 1; i < 10; i++) {
+            for (int i = 1; i <= randomNum; i++) {
                 int remainderNam = randomNum % i;
                 if (remainderNam == 0) {
                     counter++;
                 }
             }
-            if (counter == 3) {
+            if (counter >= 3) {
                 System.out.printf("Число %d является составным числом.", randomNum);
             } else if (counter == 2) {
                 System.out.printf("Число %d является простым числом.", randomNum);

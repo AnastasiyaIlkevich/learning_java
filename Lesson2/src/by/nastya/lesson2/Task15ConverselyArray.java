@@ -14,7 +14,7 @@ public class Task15ConverselyArray {
 
         Random random = new Random();
         int randomArray = random.nextInt(20 - 1) + 1;
-        int array[] = new int[randomArray];
+        int [] array = new int[randomArray];
         for (int i = 0; i < randomArray; i++) {
             int randomNum = random.nextInt(1100 - 1) + 1;
             array[i] = randomNum;
@@ -47,8 +47,8 @@ public class Task15ConverselyArray {
     }
 
     private static void printArray(int[] array) {
-        for (int i = 0; i < array.length; i++) {
-            System.out.print(" " + array[i] + " ");
+        for (int j : array) {
+            System.out.print(" " + j + " ");
         }
     }
 }

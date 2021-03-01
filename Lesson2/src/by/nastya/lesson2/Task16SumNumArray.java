@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class Task16SumNumArray {
-    static private final int namArray[] = new int[2];
+    static private final int [] namArray = new int[2];
 
     public static void main(String[] args) {
         //Задание 16

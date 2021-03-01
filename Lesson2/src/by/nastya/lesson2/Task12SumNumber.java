@@ -10,18 +10,19 @@ public class Task12SumNumber {
     public static void main(String[] args) {
         Random random = new Random();
         int randomNum = random.nextInt(1000);
-        int number = 1;
         int counter = 0;
         int sum = 0;
-        while (number <= randomNum) {
-            if (number % 3 == 0) {
-                sum = sum + number;
+        while (randomNum != 0) {
+            if (randomNum % 3 == 0) {
+                //System.out.println("randomNum "+randomNum);
+                sum = sum + randomNum;
                 counter++;
                 if (counter == 3) {
                     break;
                 }
             }
-            number++;
+            randomNum++;
         }
+        System.out.println("Сумма первых 3 целых чисел, которые делятся на 3 равна ->" + sum);
     }
 }

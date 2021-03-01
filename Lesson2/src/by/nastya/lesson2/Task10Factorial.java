@@ -5,6 +5,9 @@ import java.util.Random;
 public class Task10Factorial {
     public static void main(String[] args) {
 
+        //Задание 10
+        //Посчитать факториал числа в границах от 10 до 15 (не используя рекурсию).
+
         Random random = new Random();
         int randomNum = random.nextInt(15 - 10) + 10;
         factorialNum(randomNum);

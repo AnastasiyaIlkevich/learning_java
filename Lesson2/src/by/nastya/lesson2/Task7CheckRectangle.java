@@ -10,21 +10,21 @@ public class Task7CheckRectangle {
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        System.out.println("Введите размер стороны \"a\" прямоугольника:");
-        double a = scanner.nextDouble();
-        System.out.println("Введите размер стороны \"b\" прямоугольника:");
-        double b = scanner.nextDouble();
-        System.out.println("Введите размер радиуса \"r\" круга:");
-        double r = scanner.nextDouble();
-        checkingTheRectangle(a, b, r);
+        System.out.println("Введите длинну прямоугольного отверстия:");
+        double length = scanner.nextDouble();
+        System.out.println("Введите ширину прямоугольного отверстия:");
+        double width = scanner.nextDouble();
+        System.out.println("Введите радиус круга:");
+        double radius = scanner.nextDouble();
+        checkingTheRectangle(length, width, radius);
     }
 
-    public static void checkingTheRectangle(double a, double b, double r) {
+    public static void checkingTheRectangle(double length, double width, double radius) {
 
-        if (2 * r > b && 2 * r > a) {
-            System.out.println("True - наибольшая сторона прямоугольника меньше чем диаметр круга = " + r * 2);
+        if (2 * radius > width && 2 * radius > length) {
+            System.out.println("True - наибольшая сторона прямоугольника меньше чем диаметр круга = " + radius * 2);
         } else {
-            System.out.println("False - наибольшая сторона прямоугольника больше чем диаметр круга = " + r * 2);
+            System.out.println("False - наибольшая сторона прямоугольника больше чем диаметр круга = " + radius * 2);
         }
     }
 }
