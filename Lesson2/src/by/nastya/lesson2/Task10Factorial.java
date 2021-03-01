@@ -10,9 +10,8 @@ public class Task10Factorial {
 
         Random random = new Random();
         int randomNum = random.nextInt(15 - 10) + 10;
-        factorialNum(randomNum);
-        System.out.printf("Факториал числа %d равен ----> %d", randomNum, factorialNum(randomNum));
 
+        System.out.printf("Факториал числа %d равен ----> %d", randomNum, factorialNum(randomNum));
     }
 
     private static int factorialNum(int randomNum) {

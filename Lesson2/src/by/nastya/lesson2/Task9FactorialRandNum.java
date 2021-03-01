@@ -14,7 +14,6 @@ public class Task9FactorialRandNum {
         long sumFactorial = 0;
         long randNum = (int) (Math.random() * 20);//первое рандоиное число
         while (randNum != 0) {
-            factorial(randNum);
             sumFactorial += factorial(randNum);
             randNum = (int) (Math.random() * 20);
 
