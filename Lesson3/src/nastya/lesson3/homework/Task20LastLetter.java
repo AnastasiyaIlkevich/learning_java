@@ -13,14 +13,14 @@ public class Task20LastLetter {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите любой текст и посмотрите что молучится: ");
-        // Проверочная  строка  Один. Два, три ? четыре ! пять “ шесть   ‘ (семь и восемь)девять : десять ; один-ть
+        // Проверочная  строка  Один. Два, три ? четыре ! пять " шесть   ' (семь и восемь)девять : десять ; один-ть
         String verificationString = scanner.nextLine();
         collectionWords(verificationString);
     }
 
     private static void collectionWords(String str) {
 
-        StringTokenizer stringTokenizer = new StringTokenizer(str, " ,.?/!;:'-()\"");// почему-то не видит ковычки((((((
+        StringTokenizer stringTokenizer = new StringTokenizer(str, " ,.?/!;:'-()\"");
 
         List<String> worldList = new ArrayList<>();
         while (stringTokenizer.hasMoreTokens()) {

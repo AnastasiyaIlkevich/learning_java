@@ -1,6 +1,8 @@
 package nastya.lesson3.homework;
 
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Task18PunctuationMarks {
 
@@ -11,29 +13,26 @@ public class Task18PunctuationMarks {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите любой текст для дальнейшего подсчета всех знаков препинания: ");
-        // Проверочная строка  Один. Два, три ? четыре ! пять “ шесть ‘ (семь и восемь)девять : десять ; один-ть
+        // Проверочная строка  Один. Два, три ? четыре ! пять " шесть ' (семь и восемь)девять : десять ; один-ть
         String verificationString = scanner.nextLine();
-        char[] arrayString = verificationString.toCharArray();
 
-        countingCharacters(arrayString);
+        countingCharacters(verificationString);
 
     }
 
-    private static void countingCharacters(char[] arrayString) {
-        char[] symbol = {'.', ',', '?', '!', '\"', '\'', '(', ')', ':', ';', '-'};// почему-то не видит ковычки((((((
+    // Исправила. Сделала через классы Pattern и Matcher
+    private static void countingCharacters(String verificationString) {
+
         int count = 0;
-        for (char c : arrayString) {
-            for (char value : symbol) {
-                if (c == value) { //перебираю совпадения и заношу в счетчик
-                    count++;
-                }
-            }
+        Pattern pattern = Pattern.compile("[,.?/!;:'\\-()\"]");
+        Matcher matcher = pattern.matcher(verificationString);
+        while (matcher.find()) {
+            count++;
+            //System.out.println(matcher.group()); //для проверки
         }
-        System.out.printf("Проверяеммый текст содержит %d знаков препинания",count );
+        System.out.printf("Проверяеммый текст содержит %d знаков препинания", count);
     }
 }
-
-
 
 
 

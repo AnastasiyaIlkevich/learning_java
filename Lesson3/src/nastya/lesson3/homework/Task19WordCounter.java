@@ -1,6 +1,7 @@
 package nastya.lesson3.homework;
 
 import java.util.Scanner;
+import java.util.StringTokenizer;
 
 public class Task19WordCounter {
     //Задание 19
@@ -16,14 +17,13 @@ public class Task19WordCounter {
         wordCounter(verificationString);
     }
 
-    private static void wordCounter(String str) {
-        int count = 0;
-        for (int i = 0; i < str.length(); i++) {
-            if (str.charAt(i) == ' ' && str.charAt(i + 1) != ' ') {
-                count++;
-            }
-        }
-        System.out.printf("Проверяеммый текст состоит из %d слов(а)", count);
+    private static void wordCounter(String verificationString) {
+
+        // Исправила. Сделала через специальный метод .countTokens()
+
+        StringTokenizer str = new StringTokenizer(verificationString, " ,.?/!;:'-()\"");
+
+        System.out.printf("Проверяеммый текст состоит из %d слов(а)", str.countTokens());
     }
 }
 
