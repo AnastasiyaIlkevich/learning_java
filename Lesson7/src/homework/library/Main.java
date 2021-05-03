@@ -1,8 +1,5 @@
 package homework.library;
 
-import java.util.ArrayList;
-import java.util.TreeMap;
-
 public class Main {
 
     public static void main(String[] args) {
@@ -19,14 +16,11 @@ public class Main {
         library.addBook(book3);
         library.addBook(book4);
 
-        //сортируем список книг
-
-
         System.out.println(library.listBooks);
         library.delBook(200);
         System.out.println(library.listBooks);
-        corectBook(book, 7, "ui-ui");
-        System.out.println(library.listBooks);
+        library.bookCorrection(library.listBooks);
+        System.out.println(library.getListBooks(library.listBooks));
 
 /*        ArrayList<String> sortTitle = new ArrayList<String>(library.listBooks.containsValue());
 
@@ -36,15 +30,9 @@ public class Main {
         sortedMap.putAll(map);
 
         System.out.println(sortTitleBook);*/
-
-
     }
-
-    private static void corectBook(Book book, int id, String title) {
-
-        book.setId(id);
-        book.setTitle(title);
-
-    }
-
 }
+
+
+
+

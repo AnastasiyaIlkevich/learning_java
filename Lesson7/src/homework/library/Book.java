@@ -1,10 +1,10 @@
 package homework.library;
 
 public class Book {
-
     @Override
     public String toString() {
-        return "title " + title;
+        return "Id книги " + id +
+                ", название '" + title + '\'' ;
     }
 
     private int id;
