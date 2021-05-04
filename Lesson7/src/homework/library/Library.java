@@ -1,18 +1,19 @@
 package homework.library;
+import java.util.Collections;
+import java.util.Comparator;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+
+import java.util.*;
 
 public class Library {
 
-    Map<Integer, Book> listBooks = new HashMap<>();//возможно должен быть примитив
+    static Map<Integer, Book> listBooks = new HashMap<>();//возможно должен быть примитив
 
     // метод вставки книги по id
-    public void addBook(Book book) {
+    public static void addBook(Book book) {
         if (!listBooks.containsKey(book.getId())) {
             listBooks.put(book.getId(), book);
-            //System.out.println("книга добавлена в колл. " + listBooks.get(book.getId()));
+            System.out.println("книга добавлена в колл. " + listBooks.get(book.getId()));
         } else {
             System.out.println("id " + book.getId() + " книги уже занят. Введите другой id!");
         }
@@ -20,13 +21,13 @@ public class Library {
 
     //метод возрата всех книг библиотеки.
 
-    public Map<Integer, Book> getListBooks(Map<Integer, Book> listBooks) {
+    public static Map<Integer, Book> getListBooks(Map<Integer, Book> listBooks) {
         return listBooks;
 
     }
 
     //удаление книги по id
-    public void delBook(int id) {
+    public static void delBook(int id) {
         if (listBooks.containsKey(id)) {
             listBooks.remove(id);
         } else {
@@ -35,16 +36,32 @@ public class Library {
     }
 
     //корректировка книги
-    public void bookCorrection(Map<Integer, Book> listBooks) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите ID книги для корректировки---> ");
-        int idBook = scanner.nextInt();
+    public static void bookCorrection(int idBook) {
+
+        System.out.println(getListBooks(listBooks));
         if (listBooks.containsKey(idBook)) {
+            Scanner scanner2 = new Scanner(System.in);
             System.out.println("Введите название новой книги---> ");
-            String titleBook = scanner.nextLine();
+            String titleBook = scanner2.nextLine();
             listBooks.get(idBook).setTitle(titleBook);
         } else {
             System.out.println("Введите другой id, данного id не существует!");
         }
     }
+
+    //метод сотрировки книг
+    public static void sortBook(int sortList){
+        List<Book> list = new ArrayList<Book>( listBooks.values());
+        switch (sortList){
+            case 1:
+                list.sort(Comparator.comparing(Book::getTitle));
+                System.out.println(list.toString());
+                break;
+            case 2:
+                list.sort(Collections.reverseOrder(Comparator.comparing(Book::getTitle)));
+                System.out.println(list.toString());
+                break;
+        }
+    }
 }
+

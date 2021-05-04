@@ -4,7 +4,7 @@ public class Book {
     @Override
     public String toString() {
         return "Id книги " + id +
-                ", название '" + title + '\'' ;
+                ", название '" + title + '\'';
     }
 
     private int id;
