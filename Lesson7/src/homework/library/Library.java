@@ -7,7 +7,7 @@ import java.util.*;
 
 public class Library {
 
-    static Map<Integer, Book> listBooks = new HashMap<>();//возможно должен быть примитив
+    static Map<Integer, Book> listBooks = new HashMap<>();
 
     // метод вставки книги по id
     public static void addBook(Book book) {
@@ -38,12 +38,12 @@ public class Library {
     //корректировка книги
     public static void bookCorrection(int idBook) {
 
-        System.out.println(getListBooks(listBooks));
         if (listBooks.containsKey(idBook)) {
             Scanner scanner2 = new Scanner(System.in);
             System.out.println("Введите название новой книги---> ");
             String titleBook = scanner2.nextLine();
             listBooks.get(idBook).setTitle(titleBook);
+            System.out.println(getListBooks(listBooks));
         } else {
             System.out.println("Введите другой id, данного id не существует!");
         }
@@ -51,6 +51,8 @@ public class Library {
 
     //метод сотрировки книг
     public static void sortBook(int sortList){
+
+
         List<Book> list = new ArrayList<Book>( listBooks.values());
         switch (sortList){
             case 1:

@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Application {
     Scanner scanner = new Scanner(System.in);
+    Scanner scanner2 = new Scanner(System.in);
 
     //метод старт
     public void startProgram() throws InterruptedException {
@@ -22,9 +23,9 @@ public class Application {
         switch (programMode) {
             case 1://Вывод всех книг асортимента.
                 System.out.println("""
-                Ваши дальнейшие действия (введите цыфру для дальнейшей работы)\s
-                1. Вывод всех книг асортимента от А до Я.\s
-                2. Вывод всех книг асортимента от Я до А.\s""");
+                        Ваши дальнейшие действия (введите цыфру для дальнейшей работы)\s
+                        1. Вывод всех книг асортимента от А до Я.\s
+                        2. Вывод всех книг асортимента от Я до А.\s""");
                 int sortList = scanner.nextInt();
                 Library.sortBook(sortList);
                 break;
@@ -32,16 +33,16 @@ public class Application {
             case 2://Добавление книги (пополнение асортимента).
                 // вводим title id
                 System.out.println("Введите название книги");
-                String titleBook = scanner.nextLine();
+                String titleBook = scanner2.nextLine();
                 System.out.println("Введите название книги");
                 int idBook = scanner.nextInt();
                 //создается объект книги
                 //добавляем книгу
                 Library.addBook(new Book(idBook, titleBook));
-
                 break;
 
             case 3://Удаление книги.
+                System.out.println("Введите ID для удаления из базы книги.");
                 int idDel = scanner.nextInt();
                 Library.delBook(idDel);
                 System.out.println("Операция удаления книги с ID=" + idDel + " проведена успешно.");
@@ -53,12 +54,13 @@ public class Application {
                 Library.bookCorrection(idCorrectionBook);
                 break;
 
-            case 5://Выход (Окончание работ в системе интернет магазина).
-
-                break;
         }
-        finishProgram();//нужно исправить завершение программы. а иначе выбрав 5 мы потом повторно завершаем программу
 
+        if (!(programMode == 5)) {
+            finishProgram();
+        } else {
+            System.out.println("Выход (Окончание работ в системе интернет магазина).");
+        }
     }
 
     private void finishProgram() throws InterruptedException {
@@ -72,7 +74,5 @@ public class Application {
         } else {
             System.out.println("Выход (Окончание работ в системе интернет магазина).");
         }
-
-
     }
 }
